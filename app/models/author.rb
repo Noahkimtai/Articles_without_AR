@@ -8,11 +8,6 @@ class Author
     @@all << self  
   end
 
-  
-  # topic areas for the author
-  
-  # author can create new article
-
   def self.all
     @@all
   end
@@ -24,6 +19,15 @@ class Author
   # all magazine instances from articles
   def magazines
     articles.map{|article|article.magazine}.uniq
+  end
+
+  # author can create new article
+  def add_article(magazine,title)
+    Article.new(self,magazine,title)
+  end
+  # topic areas for the author
+  def topic_areas
+    magazines.map{|magazine|magazine.category}.uniq
   end
   
 end
