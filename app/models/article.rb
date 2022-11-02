@@ -1,13 +1,12 @@
 class Article
-    attr_accessor :title, :date
+    attr_reader :title
 
     @@all = []
 
-    def initialize(title,author,date,magazine)
-        @title = title
+    def initialize(author,magazine,title)
         @author = author
-        @date = date
         @magazine =  magazine
+        @title = title
         @@all << self
     end
 
@@ -15,7 +14,8 @@ class Article
     def author
         @author.name
     end
-    # method for accessing the name of the magazine the article belong to
+    
+    # method to access the magazine for the article
     def magazine
         @magazine.name
     end
